@@ -106,7 +106,11 @@ public class Server {
 
 	public void main(String[] args){
 		Server server1 = new Server(5000);
-		server1.receiveDatagram();
-		server1.sendDatagram();
+		
+		for(;;){
+			server1.receiveDatagram();
+			server1.sendDatagram();
+		}
+
 	}
 }
