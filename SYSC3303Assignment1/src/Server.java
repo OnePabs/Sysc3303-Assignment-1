@@ -37,7 +37,9 @@ public class Server {
 			System.out.println("Waiting for Packet...");
 			receiveSocket.receive(receivePacket);
 		}catch(IOException e){
-			System.out.println("Server timeout");
+			System.out.println("Server timeout, no more packets");
+			receiveSocket.close();
+			sendSocket.close();
 			System.exit(1);
 		}
 		System.out.println("Packet Received"); 
