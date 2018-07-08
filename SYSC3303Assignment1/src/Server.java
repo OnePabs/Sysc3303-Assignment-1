@@ -32,8 +32,9 @@ public class Server {
 		
 		//listen on port using socket receiveSocket
 		//when datagram packet received, copy it into receivePacket
+		//receive socket timeout set to 8 seconds to terminate the server 
 		try{
-			receiveSocket.setSoTimeout(10000);
+			receiveSocket.setSoTimeout(8000);
 			System.out.println("Waiting for Packet...");
 			receiveSocket.receive(receivePacket);
 		}catch(IOException e){
@@ -46,7 +47,7 @@ public class Server {
 		
 	}
 	
-	public byte[] eliminateVowels(byte[] args){
+	private byte[] eliminateVowels(byte[] args){
 		//removes the bytes with ANSCII valued equivalent to vowels
 		//parameter: "len" byte array representing alpha-numeric characters (no null characters)
 		//return: "len" byte array without any number that in ANSCII is a vowel
