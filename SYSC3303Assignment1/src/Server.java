@@ -26,7 +26,7 @@ public class Server {
 		//parameters: none
 		//return: none, field receivePacket initialized with the package received
 		
-		//create a datagram packet where the information will be copyed
+		//create a datagram packet where the information will be copied
 		byte[] data = new byte[20];
 		receivePacket = new DatagramPacket(data,data.length);
 		
