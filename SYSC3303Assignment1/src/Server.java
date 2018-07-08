@@ -101,7 +101,7 @@ public class Server {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		System.out.println(" Packet sent!");
+		System.out.println(" Packet sent through server: " + receiveSocket.getLocalPort());
 	}
 
 	public static void main(String[] args){
