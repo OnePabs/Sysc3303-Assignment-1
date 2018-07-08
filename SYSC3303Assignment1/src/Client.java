@@ -11,7 +11,7 @@ public class Client {
 		/* Construct a datagram socket with any port 
 		 * Used to send and receive UDP Datagram packets
 		 */
-		try {sendReceiveSocket = new DatagramSocket();
+		try {sendReceiveSocket = new DatagramSocket(13);
 		} catch (SocketException se) { // Can't create the socket.
 			se.printStackTrace();
 			System.exit(1);

@@ -22,7 +22,7 @@ public class Server {
 	}//end constructor
 
 	public void receiveDatagram(){
-		//listens to channel 5000 for a package to be received
+		//listens to channel assigned for a package to be received
 		//once the package is received, copy its data to the field receivePackage
 		//parameters: none
 		//return: none, field receivePacket initialized with the package received
@@ -92,7 +92,7 @@ public class Server {
 		
 		//initialize the sendPacket with the no-vowel data
 		sendPacket = new DatagramPacket(data,data.length,
-				receivePacket.getAddress(), receivePacket.getPort());
+				receivePacket.getAddress(), 5000);
 		
 		//send datagram packet back to client 
 		try {
@@ -105,11 +105,16 @@ public class Server {
 	}
 
 	public static void main(String[] args){
-		Server server1 = new Server(5000);
+		Server server1 = new Server(23);
+		Server server2 = new Server(69);
 		
 		for(;;){
 			server1.receiveDatagram();
 			server1.sendDatagram();
+			
+			server2.receiveDatagram();
+			server2.sendDatagram();
+			
 		}
 
 	}
