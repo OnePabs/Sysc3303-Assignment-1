@@ -19,7 +19,7 @@ public class Client {
 	}
 	
 	private void sendString() {
-		//randomly generated sequence of 20 characters 
+		//randomly generating a sequence of 20 characters 
 		final String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		final int N = alphabet.length();
 		Random r = new Random();
@@ -30,7 +30,7 @@ public class Client {
 		//converting string to bytes
 		byte[] msg = new byte[20];
 		msg = s.getBytes();
-		//create a datagram packet with the 20 byte msg 
+		//creating a datagram packet with the 20 byte message 
 		try {
 			sendPacket = new DatagramPacket(msg, 20, InetAddress.getLocalHost(), 5000);
 		} catch(UnknownHostException e) {
@@ -52,7 +52,7 @@ public class Client {
 		//creating a datagram packet to receive up to 20 bytes of data
 		byte data[] = new byte[20];
 		receivePacket = new DatagramPacket(data, data.length);
-		
+		//receiving the packet and blocking until packet receieved
 		try {
 			sendReceiveSocket.receive(receivePacket); 
 		}catch (IOException e) {
@@ -69,7 +69,7 @@ public class Client {
 	public static void main(String[] args){
 		final long startTime = System.currentTimeMillis();
 		Client c = new Client();
-		//100 iterations 
+		//100 iterations of messages
 		for(int i = 0; i < 100; i++) {
 			System.out.println(i + "."); 
 			c.sendString();
@@ -77,6 +77,7 @@ public class Client {
 		}
 		c.sendReceiveSocket.close();
 		final long endTime = System.currentTimeMillis();
+		//calculation and printing execution time
 		System.out.println("Total execution time: " + (endTime - startTime) + "ms." );
 	}
 }

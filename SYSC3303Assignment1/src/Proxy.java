@@ -56,7 +56,6 @@ public class Proxy {
 			System.exit(1);
 		}
 
-		
 		//send datagram to server
 		try {
 			sendSocket.send(sendPacket);
@@ -70,6 +69,7 @@ public class Proxy {
 	
 	public static void main(String[] args){
 		Proxy p = new Proxy();
+		//random generator to choose one of the two servers
 		Random rand = new Random();
 		int n;
 		for(int i = 0; i < 100; i++){
