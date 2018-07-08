@@ -4,11 +4,10 @@ import java.io.*;
 public class Server {
 	
 	//fields
-	DatagramPacket receivePacket;
-	DatagramPacket sendPacket;
-	DatagramSocket receiveSocket;
-	DatagramSocket sendSocket;
-	int DatagramLength = 20;
+	protected DatagramPacket receivePacket;
+	protected DatagramPacket sendPacket;
+	protected DatagramSocket receiveSocket;
+	protected DatagramSocket sendSocket;
 	
 	public Server(int ServerPortNumber){
 		//initialize sockets
@@ -104,18 +103,4 @@ public class Server {
 		System.out.println(" Packet sent through server: " + receiveSocket.getLocalPort());
 	}
 
-	public static void main(String[] args){
-		Server server1 = new Server(23);
-		Server server2 = new Server(69);
-		
-		for(;;){
-			server1.receiveDatagram();
-			server1.sendDatagram();
-			
-			server2.receiveDatagram();
-			server2.sendDatagram();
-			
-		}
-
-	}
 }

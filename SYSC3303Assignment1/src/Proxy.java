@@ -1,17 +1,13 @@
 
 import java.net.*;
 import java.io.*;
-
+import java.util.Random;
 
 public class Proxy {
 	
 	//fields
-	int currServerPort; //holds the port number of the current server in use (23 or 69)
-	int clientPort; //holds the port number of the client
-	int proxyPort = 5000; //port number of the proxy
-	
-	DatagramPacket receivePacket, sendPacket;
-	DatagramSocket receiveSocket, sendSocket;
+	private DatagramPacket receivePacket, sendPacket;
+	private DatagramSocket receiveSocket, sendSocket;
 	
 	public Proxy(){
 		//initialize sockets so proxy port is 5000
@@ -37,13 +33,13 @@ public class Proxy {
 		//listen on port using socket receiveSocket
 		//when datagram packet received, copy it into receivePacket
 		try{
-			System.out.println("Waiting for Packet...");
+			System.out.println("Waiting for packet");
 			receiveSocket.receive(receivePacket);
 		}catch(IOException e){
 			System.out.println("Packet not received");
 			System.exit(1);
 		}
-		System.out.println("Packet Received"); 
+		System.out.println(" Packet Received"); 
 	}
 	
 	public void sendDatagramToPort(int port){
@@ -68,23 +64,33 @@ public class Proxy {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		System.out.println(" Packet sent!");
+		System.out.println("  Packet sent to port " + port);
 	}
 	
 	
 	public static void main(String[] args){
 		Proxy p = new Proxy();
-		for(;;){
-			p.receiveDatagramFromClient(); //get data from client
-			p.sendDatagramToPort(23);	//send to server 1
-			p.receiveDatagramFromClient();	//get data from server 1
-			p.sendDatagramToPort(13); //send to client
-			
-			
-			p.receiveDatagramFromClient(); //get data from client
-			p.sendDatagramToPort(69);	//send to server 1
-			p.receiveDatagramFromClient();	//get data from server 1
-			p.sendDatagramToPort(13); //send to client
+		Random rand = new Random();
+		int n;
+		for(int i = 0; i < 100; i++){
+			n = rand.nextInt(2) + 1;
+			if (n == 1) {
+				System.out.println(i + ". Sending to port 23");
+				p.receiveDatagramFromClient(); //get data from client
+				p.sendDatagramToPort(23);	//send to server 1
+				p.receiveDatagramFromClient();	//get data from server 1
+				p.sendDatagramToPort(13); //send to client
+			}
+			else {
+				System.out.println(i + ". Sending to port 69");
+				p.receiveDatagramFromClient(); //get data from client
+				p.sendDatagramToPort(69);	//send to server 1
+				p.receiveDatagramFromClient();	//get data from server 1
+				p.sendDatagramToPort(13); //send to client
+			}
 		}
+		System.out.println("All messages sent");
+		p.receiveSocket.close();
+		p.sendSocket.close();
 	}
 }

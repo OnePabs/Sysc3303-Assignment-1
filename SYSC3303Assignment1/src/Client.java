@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Client {
 	
-	DatagramPacket sendPacket, receivePacket;
-	DatagramSocket sendReceiveSocket;
+	private DatagramPacket sendPacket, receivePacket;
+	private DatagramSocket sendReceiveSocket;
 	
 	public Client() {
 		/* Construct a datagram socket with any port 
@@ -71,6 +71,7 @@ public class Client {
 		Client c = new Client();
 		//100 iterations 
 		for(int i = 0; i < 100; i++) {
+			System.out.println(i + "."); 
 			c.sendString();
 			c.receiveString();
 		}
