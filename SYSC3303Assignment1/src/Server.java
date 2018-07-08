@@ -31,7 +31,7 @@ public class Server {
 		byte[] data = new byte[20];
 		receivePacket = new DatagramPacket(data,data.length);
 		
-		//listen on port 5000 using socket receiveSocket
+		//listen on port using socket receiveSocket
 		//when datagram packet received, copy it into receivePacket
 		try{
 			System.out.println("Waiting for Packet...");
@@ -104,7 +104,7 @@ public class Server {
 		System.out.println(" Packet sent!");
 	}
 
-	public void main(String[] args){
+	public static void main(String[] args){
 		Server server1 = new Server(5000);
 		
 		for(;;){

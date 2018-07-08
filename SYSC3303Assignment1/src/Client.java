@@ -64,11 +64,7 @@ public class Client {
 		System.out.println("Recieved string: " + receive);
 		
 	}
-	
-	public void printReceivedDatagram(){
-		String s = receivePacket.getData().toString();
-		System.out.println(s);
-	}
+
 	
 	public static void main(String[] args){
 		final long startTime = System.currentTimeMillis();
@@ -77,7 +73,6 @@ public class Client {
 		for(int i = 0; i < 100; i++) {
 			c.sendString();
 			c.receiveString();
-			c.printReceivedDatagram();
 		}
 		c.sendReceiveSocket.close();
 		final long endTime = System.currentTimeMillis();
