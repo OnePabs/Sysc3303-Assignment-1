@@ -33,14 +33,14 @@ public class Server {
 		//listen on port using socket receiveSocket
 		//when datagram packet received, copy it into receivePacket
 		try{
+			receiveSocket.setSoTimeout(10000);
 			System.out.println("Waiting for Packet...");
 			receiveSocket.receive(receivePacket);
 		}catch(IOException e){
-			System.out.println("Packet not received");
+			System.out.println("Server timeout");
 			System.exit(1);
 		}
 		System.out.println("Packet Received"); 
-		
 		
 	}
 	
