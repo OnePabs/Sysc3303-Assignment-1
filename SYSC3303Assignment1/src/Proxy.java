@@ -20,7 +20,7 @@ public class Proxy {
 		}
 	}
 	
-	public void receiveDatagramFromClient(){
+	private void receiveDatagramFromClient(){
 		//listens to channel 5000 for a package to be received
 		//once the package is received, copy its data to the field receivePackage
 		//parameters: none
@@ -42,7 +42,7 @@ public class Proxy {
 		System.out.println(" Packet Received"); 
 	}
 	
-	public void sendDatagramToPort(int port){
+	private void sendDatagramToPort(int port){
 		
 		//create data 
 		byte[] data = receivePacket.getData();
