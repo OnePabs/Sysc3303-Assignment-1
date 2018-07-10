@@ -3,9 +3,9 @@ Date due: July 10, 2018
 
 Team Members
 ---------------------------------------------
-Team Member: Juan Pablo Contreras
+Team Member: Juan Pablo Contreras (101006952)
 			 email: juanpablocontreras@cmail.carleton.ca
-Team Member: Kevin Ho
+Team Member: Kevin Ho (100997967)
 			 email: kevincho@cmail.carleton.ca
 
 General Information
