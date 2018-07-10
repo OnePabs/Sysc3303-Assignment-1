@@ -3,6 +3,11 @@ import java.net.*;
 import java.io.*;
 import java.util.Random;
 
+/*
+ * Proxy acts as a load balancer between client and server. Will randomly select one of two servers.
+ * @author Kevin Ho (100997967) and Juan Paulo Contreras(101006952)
+ * @version July 10, 2018
+ */
 public class Proxy {
 	
 	//fields

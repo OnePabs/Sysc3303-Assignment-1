@@ -2,6 +2,12 @@ import java.io.*;
 import java.net.*;
 import java.util.Random;
 
+/*
+ * Client generates a sequence of 20 characters as a string, sends to proxy then receives a sequence back from proxy
+ * @author Kevin Ho (100997967) and Juan Paulo Contreras(101006952)
+ * @version July 10, 2018
+ */
+
 public class Client {
 	
 	private DatagramPacket sendPacket, receivePacket;

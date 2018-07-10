@@ -1,6 +1,12 @@
 import java.net.*;
 import java.io.*;
 
+/*
+ * Server implementation. Receives a sequence of characters from proxy and eliminates vowels then sends it back to proxy 
+ * @author Kevin Ho (100997967) and Juan Paulo Contreras(101006952)
+ * @version July 10, 2018 
+ */
+
 public class Server {
 	
 	//fields
